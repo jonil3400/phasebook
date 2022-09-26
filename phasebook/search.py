@@ -35,6 +35,7 @@ def search_users(args):
     agevalue = None
     occvalue = None
 
+#keys and value in args dictionary
     for key in args.keys():
         if key == "id":
             idvalue = args.get(key)
@@ -46,7 +47,7 @@ def search_users(args):
             occvalue = args.get(key)
         
             
-
+#comparing args into the USERS
     for index in range(len(USERS)):
          #for ukey, uval in USERS[index].items():
         for key in USERS[index].keys():
@@ -59,7 +60,7 @@ def search_users(args):
             if occvalue != None and occvalue == USERS[index]['occupation']:
                 userlist.append(index)
                     
-
+#merging the same index and returning the output
     g = [k for k,_ in groupby(userlist)]
 
     return[USERS[i] for i in g]
